@@ -52,15 +52,16 @@ L'applicazione dovrà permettere di:
 ### Funzionalità Essenziali:
 
 1. Accesso multiplo ad un unico URL
-2. Utilizzo di https://opentdb.com/api_config.php come fonte dati per le domande
-3. Meccanismo di base del quiz
+2. Visualizzazione mobile-first
+3. Utilizzo di https://opentdb.com/api_config.php come fonte dati per le domande
+4. Meccanismo di base del quiz
    1. Avvio partita
    2. Visualizzazione nuova domanda
    3. Gestione delle risposte
    4. Visualizzazione classifica partita
    5. Temporizzazione domanda
    6. Conclusione partita e classifica finale
- 4. Deploy pubblico su indirizzo accessibile 
+ 5. Deploy pubblico su indirizzo accessibile 
 
 ### Funzionalità Opzionali:
 
