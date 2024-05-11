@@ -25,11 +25,12 @@ Quest'attività è volutamente lasciata in capo ai team, che saranno comunque se
 #### Fase 3: Sviluppo
 I team svilupperanno la loro soluzione, concentrandosi sulle funzionalità principali, definite e prioritizzate in fase di analisi.
 
-#### Ore 19: Check con tutti i team su [link zoom]
-Al termine della giornata, ci si ritroverà tutti insieme in una chiamata Zoom per analizzare insieme il lavoro fin qui eseguito.
-
 ### 14,15,16 Maggio
 I team continueranno a lavorare in modo indipendente sui loro progetti, cercando di implementare più funzionalità possibili.
+
+### Daily Review
+
+Ogni giorno, a partire dal 14 Maggio, ci sarà un'attività di review con ogni singolo team
 
 ### Venerdi 17 Maggio, ore 17: Meeting finale su [link zoom] e saluti
 
