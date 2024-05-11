@@ -40,7 +40,7 @@ I team continueranno a lavorare in modo indipendente sui loro progetti, cercando
 ### Scopo del Progetto:
 Realizzare un'applicazione collaborativa che permetta agli utenti di partecipare ad un Quiz in tempo reale.
 
-L'applicazione dovrà permette di:
+L'applicazione dovrà permettere di:
 - far accedere allo stesso URL diversi partecipanti, chiedendo loro un nome con cui partecipare (o assegnandone uno di fantasia)
 - Quando almeno 2 partecipanti sono presenti, può essere avviata una nuova partita
 - Tutti i partecipanti presenti sull'URL in quel momento, avranno possibilità di dare una risposta
