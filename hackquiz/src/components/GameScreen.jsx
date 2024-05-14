@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react';
 
 const GameScreen = ({ username }) => {
     const [numQuestions, setNumQuestions] = useState(10);
-    const [timer, setTimer] = useState(60);
+    const [timer, setTimer] = useState(10);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-        setTimer((prevTimer) => prevTimer - 1);
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
+        if(!timer){
+            return;
+        }
+            const interval = setInterval(() => {
+            setTimer(timer - 1);
+            }, 1000);
+    
+            return () => clearInterval(interval);
+    }, [timer]);
 
     return (
         <div>
