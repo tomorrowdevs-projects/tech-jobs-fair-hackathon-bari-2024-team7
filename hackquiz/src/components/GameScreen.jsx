@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../components/Header.jsx';
 
 const GameScreen = ({ username }) => {
     const [numQuestions, setNumQuestions] = useState(10);
@@ -16,11 +17,14 @@ const GameScreen = ({ username }) => {
     }, [timer]);
 
     return (
+        <>
+        <Header />
         <div>
         <h2>Ciao, {username}!</h2>
         <p>Numero di domande: {numQuestions}</p>
         <p>Timer: {timer} secondi</p>
         </div>
+        </>
     );
 };
 
