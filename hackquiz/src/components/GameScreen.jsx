@@ -18,12 +18,12 @@ const GameScreen = ({ username }) => {
 
     return (
         <>
-        <Header />
-        <div>
-        <h2>Ciao, {username}!</h2>
-        <p>Numero di domande: {numQuestions}</p>
-        <p>Timer: {timer} secondi</p>
-        </div>
+            <Header />
+            <div>
+            <h2>Ciao, {username}!</h2>
+            <p>Numero di domande: {numQuestions}</p>
+            <p>Timer: {timer} secondi</p>
+            </div>
         </>
     );
 };
