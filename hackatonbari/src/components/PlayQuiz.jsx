@@ -97,7 +97,7 @@ export default function PlayQuiz() {
     const [quizDifficulty, setQuizDifficulty] = useState('');
     const [result, setResult] = useState(0);
     const [playerName, setPlayerName] = useState('');
-    const [timeRemaining, setTimeRemaining] = useState(60);
+    const [timeRemaining, setTimeRemaining] = useState(10);
     const databaseRef = collection(database, 'Leader Board');
 
     useEffect(() => {
@@ -110,66 +110,75 @@ export default function PlayQuiz() {
     }, []);
 
     useEffect(() => {
-        const countdown = setInterval(() => {
-            setTimeRemaining((prevTime) => prevTime - 1);
+    const countdown = setInterval(() => {
+            setTimeRemaining((prevTime) => {
+                if (prevTime === 0) {
+                    nextQuestion();
+                    return 10;
+                } else {
+                    return prevTime - 1;
+                }
+            });
         }, 1000);
 
         return () => clearInterval(countdown);
     }, []);
 
-    const nextQuestion = () => {
-        if (questionCounter < questionsArray.length + 1) {
-            setQuesCounter(questionCounter + 1);
-            setTimeRemaining(60);
+        const nextQuestion = () => {
+            if (questionCounter < questionsArray.length + 1) {
+                setQuesCounter(questionCounter + 1);
+                setTimeRemaining(10);
+                setResult(result + 0);
+            result
+            }
         }
-    }
 
-    const submitQuiz = () => {
-        addDoc(databaseRef, {
-            playerName: playerName,
-            timeStamp: moment().format('LLL'),
-            difficulty: quizDifficulty,
-            category: questionsArray[0].category,
-            finalScore: result
-        })
-            .then(() => {
-                navigate('/results', {
-                    state: {
-                        finalResults: result,
-                    }
-                })
+        const submitQuiz = () => {
+            addDoc(databaseRef, {
+                playerName: playerName,
+                timeStamp: moment().format('LLL'),
+                difficulty: quizDifficulty,
+                category: questionsArray[0].category,
+                finalScore: result
             })
-    }
+                .then(() => {
+                    navigate('/results', {
+                        state: {
+                            finalResults: result,
+                        }
+                    })
+                })
+        }
 
-    return (
-        <div>
-            {questionCounter < questionsArray.length + 1 ? (
-                <div>
-                    <h1>Play Quiz</h1>
-                    <h2>Question Number: {questionCounter}</h2>
-                    <h3>Difficulty Level: {quizDifficulty}</h3>
-                    <h3>Time Remaining: {timeRemaining} seconds</h3>
-                    <Card
-                        questionsArray={questionsArray}
-                        questionCounter={questionCounter}
-                        nextQuestion={nextQuestion}
-                        setResult={setResult}
-                        result={result}
-                        timeRemaining={timeRemaining}
-                    />
-                </div>
-            ) : (
-                <div className='submit-container'>
-                    <h2>The Quiz is now finished..</h2>
-                    <p>You can Submit your Score..</p>
-                    <Button
-                        onClick={submitQuiz}
-                        variant="contained"
-                        style={{ marginLeft: 10 }}>
-                        Submit
-                    </Button>
-                </div>
-            )}
-        </div>
-    )
-}
+        return (
+            <div>
+                {questionCounter < questionsArray.length + 1 ? (
+                    <div>
+                        <h1>Play Quiz</h1>
+                        <h2>Question Number: {questionCounter}</h2>
+                        <h3>Difficulty Level: {quizDifficulty}</h3>
+                        <h3>Time Remaining: {timeRemaining} seconds</h3>
+                        <Card
+                            questionsArray={questionsArray}
+                            questionCounter={questionCounter}
+                            nextQuestion={nextQuestion}
+                            setResult={setResult}
+                            result={result}
+                            timeRemaining={timeRemaining}
+                        />
+                    </div>
+                ) : (
+                    <div className='submit-container'>
+                        <h2>The Quiz is now finished..</h2>
+                        <p>You can Submit your Score..</p>
+                        <Button
+                            onClick={submitQuiz}
+                            variant="contained"
+                            style={{ marginLeft: 10 }}>
+                            Submit
+                        </Button>
+                    </div>
+                )}
+            </div>
+        )
+    }

@@ -1,16 +1,43 @@
+/* Importazione del font */
 @import url("https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap");
+
+/* Stile per l'intera pagina */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 500%;
+  background: linear-gradient(to bottom right, #932cb3, #2575fc);
+  font-family: 'Luxurious Roman', cursive;
+}
+
+#root {
+  height: 100%;
+}
 
 .app-main {
   text-align: center;
-  font-family: "Luxurious Roman", cursive;
 }
 
 h3 {
   text-transform: capitalize;
 }
 
+/* Stile principale del quiz */
 .quiz-main {
-  padding: 20px;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.9); /* Cambia il colore della card */
+  border-radius: 20px;
+  box-shadow: 0 40px 60px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  color: #1d1d1d; /* Cambia il colore del titolo */
+  /* centra verticalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  
+  
 }
 
 .question-type {
@@ -31,6 +58,7 @@ h3 {
   margin-top: 20px;
 }
 
+
 @media screen and (min-width: 800px) {
   .options-grid:hover {
     background-color: #4caf50;
@@ -39,10 +67,93 @@ h3 {
   }
 }
 
-.submit-container{
+.submit-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
+}
+
+/* Stile specifico per il TextField quando è in focus */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #6a11cb;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: #6a11cb;
+}
+
+.MuiOutlinedInput-input {
+  background-color: rgba(235, 231, 231, 0.945);
+  border-radius: 4px;
+  padding: 10px;
+  color: #333; /* Cambia il colore del testo se necessario */
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
+  background-color: rgba(235, 220, 220, 0.2);
+}
+
+
+/* Stile avanzato per il titolo */
+.title {
+  font-size: 3rem;
+  background: linear-gradient(45deg, #ff6b6b, #f0e130, #6b6bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 5s infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Pagina del quiz */
+.play-quiz {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.play-quiz h1 {
+  margin-bottom: 20px;
+}
+
+.play-quiz p {
+  margin: 10px 0;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+}
+
+.answers button {
+  background-color: #6a11cb;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.answers button:hover {
+  background-color: #3700b3;
 }

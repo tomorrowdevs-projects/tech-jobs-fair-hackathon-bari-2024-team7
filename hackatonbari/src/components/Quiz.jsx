@@ -75,14 +75,14 @@ export default function Quiz() {
             <Button
                 onClick={getQuiz}
                 variant="contained"
-                style={{ marginTop: 10, marginRight: 5 }}>
+                style={{ marginTop: 10, marginRight: 0 }}>
                 GET QUIZ
             </Button>
 
             <Button
                 onClick={() => navigate('/results')}
                 variant="contained"
-                style={{ marginTop: 10, marginLeft: 5 }}>
+                style={{ marginTop: 10, marginLeft: 0 }}>
                 CHECK LEADERBOARD
             </Button>
         </div>
