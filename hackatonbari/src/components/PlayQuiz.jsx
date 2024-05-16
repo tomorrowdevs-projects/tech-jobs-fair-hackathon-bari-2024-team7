@@ -111,14 +111,7 @@ export default function PlayQuiz() {
 
     useEffect(() => {
     const countdown = setInterval(() => {
-            setTimeRemaining((prevTime) => {
-                if (prevTime === 0) {
-                    nextQuestion();
-                    return 10;
-                } else {
-                    return prevTime - 1;
-                }
-            });
+            setTimeRemaining((prevTime) => prevTime > 0 ? prevTime - 1 : 0););
         }, 1000);
 
         return () => clearInterval(countdown);
