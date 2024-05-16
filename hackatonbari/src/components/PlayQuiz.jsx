@@ -113,7 +113,7 @@ export default function PlayQuiz() {
 
     let countdown;
 
-    if (timeRemaining > 0) {
+    if (timeRemaining >= 0) {
       countdown = setInterval(() => {
         setTimeRemaining((prevTime) => prevTime - 1);
       }, 1000);
