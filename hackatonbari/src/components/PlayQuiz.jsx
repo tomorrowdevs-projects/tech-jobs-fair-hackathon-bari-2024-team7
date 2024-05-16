@@ -110,12 +110,19 @@ export default function PlayQuiz() {
     }, []);
 
     useEffect(() => {
-    const countdown = setInterval(() => {
-            setTimeRemaining((prevTime) => prevTime > 0 ? prevTime - 1 : 0););
-        }, 1000);
 
-        return () => clearInterval(countdown);
-    }, []);
+    let countdown;
+
+    if (timeRemaining > 0) {
+      countdown = setInterval(() => {
+        setTimeRemaining((prevTime) => prevTime - 1);
+      }, 1000);
+    } else {
+      return nextQuestion();
+    }
+
+    return () => clearInterval(countdown);
+  }, [timeRemaining]);
 
         const nextQuestion = () => {
             if (questionCounter < questionsArray.length + 1) {
