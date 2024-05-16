@@ -5,9 +5,11 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import rightAnswer from '../../assets/correct-answer.mp3';
-import wrongAnswer from '../../assets/wrong-answer.mp3';
-import JSConfetti from 'js-confetti'
+import gsap from 'gsap';
+import JSConfetti from 'js-confetti';
+import correctAnswerSound from '../../assets/correct-answer.mp3';
+import wrongAnswerSound from '../../assets/wrong-answer.mp3';
+
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -22,11 +24,11 @@ export default function BasicGrid({
     setResult,
     result
 }) {
-    const jsConfetti = new JSConfetti()
+    const jsConfetti = new JSConfetti();
     const handleOptions = (option) => {
         if (correctAnswer === option) {
             setResult(result + 1);
-            document.getElementById('correct-answer').play()
+            document.getElementById('correct-answer').play();
             jsConfetti.addConfetti({
                 confettiNumber: 300,
                 confettiColors: [
@@ -41,24 +43,23 @@ export default function BasicGrid({
                     '#00e676',
                     '#cddc39'
                 ],
-            })
-            toast.success("Right Answer", {
-                autoClose: 2000,
-            })
+            });
+            
+        } else {
+            document.getElementById('wrong-answer').play();
+            gsap.fromTo('.options-grid',
+                { x: 0 },
+                { x: -10, repeat: 5, duration: 0.1, yoyo: true, ease: 'power1.inOut' }
+            );
         }
-        else {
-            document.getElementById('wrong-answer').play()
-            toast.error("Wrong Answer", {
-                autoClose: 2000,
-            })
-        }
-        nextQuestion()
-    }
+        nextQuestion();
+    };
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <>
-                <audio src={rightAnswer} id="correct-answer"></audio>
-                <audio src={wrongAnswer} id="wrong-answer"></audio>
+                <audio src={correctAnswerSound} id="correct-answer"></audio>
+                <audio src={wrongAnswerSound} id="wrong-answer"></audio>
             </>
             <ToastContainer />
             <Grid container spacing={2}>
