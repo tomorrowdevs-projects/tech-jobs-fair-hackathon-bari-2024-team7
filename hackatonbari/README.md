@@ -68,3 +68,18 @@ L'applicazione dovrà permettere di:
 
 1. Rispetto degli standard base [OWASP](https://owasp.org/) per la sicurezza
 2. Creazione di container Docker per i vari elementi dell'applicazione
+
+
+----------------____
+
+Pacchetti da installare
+
+npm install react react-dom
+npm install @mui/material @emotion/react @emotion/styled
+npm install --save react-toastify
+npm i firebase
+npm add js-confetti
+npm i html-react-parser
+npm i react-moment
+
+repo personale sascha
