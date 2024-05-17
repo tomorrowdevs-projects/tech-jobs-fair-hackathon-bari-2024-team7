@@ -58,7 +58,7 @@ export default function Quiz() {
   return (
     <div className='quiz-main'>
       <ToastContainer />
-      <h1>QuiQuoQuiz - The Hackaton Live Quiz</h1>
+      <h1>QuiQuoQuiz - The Hackathon Live Quiz</h1>
       <TextField
         required
         style={{ marginBottom: 20 }}
