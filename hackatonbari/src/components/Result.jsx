@@ -59,7 +59,7 @@ export default function Result() {
         Play Again
       </Button>
       <Divider />
-      <h2>Leader Board</h2>
+      <h2>Leaderboard</h2>
       <div style={{ margin: 20 }}>
         <Table leaderBoardData={leaderBoardData} />
       </div>
