@@ -160,6 +160,7 @@ export default function PlayQuiz() {
       {questionCounter < questionsArray.length + 1 ? (
         <div>
           <h1>Play Quiz</h1>
+          <h2>Punteggio {result}</h2>
           <h2>Question Number: {questionCounter}</h2>
           <h3>Difficulty Level: {quizDifficulty}</h3>
           <h3>Time Remaining: {timeRemaining} seconds</h3>
